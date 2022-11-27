@@ -11,6 +11,6 @@
     <label for="">{{this.actualWord.hungarian}}</label>
     <input type="text" [(ngModel)]="this.userChoice">
     <button (click)="verify()" *ngIf="this.userChoice > ''">Verify</button>
-    <label for="" class="response">{{this.response}}</label>
+    <label [ngStyle]="{'color':this.response == 'Good Answer !'? 'green' : 'red'} ">{{this.response}}</label>
     <button (click)="nextWord()" *ngIf="this.response > '' && this.count < this.choiceWordArray.length">Next word</button>
 </div>

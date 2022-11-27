@@ -21,19 +21,25 @@ export class AddComponent implements OnInit {
   }
 
   public addWord(){
-    let tmp = this.service.words.filter(t => t.english == this.service.actualWord.english)
 
-    if(tmp.length == 0){
-      let wCopy: Word = new Word();
-      wCopy.hungarian = this.service.actualWord.hungarian;
-      wCopy.english = this.service.actualWord.english
-      this.service.words.push(wCopy);
-      this.service.actualWord.hungarian = '';
-      this.service.actualWord.english = '';
-      this.service.save();
+    if(this.service.actualWord.hungarian > '' && this.service.actualWord.english > ''){
+      let tmp = this.service.words.filter(t => t.english == this.service.actualWord.english)
+
+      if(tmp.length == 0){
+        let wCopy: Word = new Word();
+        wCopy.hungarian = this.service.actualWord.hungarian;
+        wCopy.english = this.service.actualWord.english
+        this.service.words.push(wCopy);
+        this.service.actualWord.hungarian = '';
+        this.service.actualWord.english = '';
+        this.service.save();
+      }else{
+        alert('Such a word is already in the list !');
+      }
     }else{
-      alert('van már ilyen szavad !');
+      alert("Can't be an empty field!");
     }
+    
   }
 
   public removeWord(english:string){
