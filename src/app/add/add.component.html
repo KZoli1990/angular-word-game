@@ -1,0 +1,29 @@
+<h2>Add Word</h2>
+
+<div class="formDiv">
+    <label for="">Hungarian</label>
+    <input type="text" [(ngModel)]='this.service.actualWord.hungarian'>
+    <label for="">English</label>
+    <input type="text" [(ngModel)]='this.service.actualWord.english'>
+    <button (click)="addWord()">Add Word</button>
+</div>
+
+<table>
+    <tr>
+        <th>Hungarian</th>
+        <th>English</th>
+        <th>Goods</th>
+        <th>Bads</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let w of this.service.words">
+        <td>{{w.hungarian}}</td>
+        <td>{{w.english}}</td>
+        <td>{{w.goods}}</td>
+        <td>{{w.bads}}</td>
+        <td><button (click)="removeWord(w.english)">Delete</button></td>
+    </tr>
+</table>
+
+<a id="downloadButton">Export</a>

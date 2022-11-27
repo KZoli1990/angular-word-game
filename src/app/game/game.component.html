@@ -1,0 +1,16 @@
+<h2>Let's play with words</h2>
+
+<div class="play" *ngIf="!this.playGame">
+    <label for="">How many words do you want to play with?</label>
+    <input type="range" min="1" max="{{this.service.words.length}}" [(ngModel)]="this.wordNumber">
+    <label for="">{{this.wordNumber}}</label>
+    <button (click)="play()">Play game</button>
+</div>
+
+<div class="formDiv" *ngIf="this.playGame">
+    <label for="">{{this.actualWord.hungarian}}</label>
+    <input type="text" [(ngModel)]="this.userChoice">
+    <button (click)="verify()" *ngIf="this.userChoice > ''">Verify</button>
+    <label for="" class="response">{{this.response}}</label>
+    <button (click)="nextWord()" *ngIf="this.response > '' && this.count < this.choiceWordArray.length">Next word</button>
+</div>

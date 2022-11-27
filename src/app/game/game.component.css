@@ -1,0 +1,19 @@
+.play{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.play button{
+    padding:10px;
+    background-color: green;
+    font-size: 1.2em;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.formDiv{
+    text-align: center;
+}
